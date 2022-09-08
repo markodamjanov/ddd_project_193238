@@ -13,4 +13,10 @@
         <maven.compiler.target>17</maven.compiler.target>
     </properties>
 
+    <modules>
+        <module>shared_kernel</module>
+        <module>product_catalog</module>
+        <module>order_management</module>
+    </modules>
+
 </project>
