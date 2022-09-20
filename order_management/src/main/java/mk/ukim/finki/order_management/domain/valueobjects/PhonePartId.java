@@ -8,7 +8,7 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class PhonePartId extends DomainObjectId {
 
-    protected PhonePartId(@NonNull String uuid) {
+    public PhonePartId(@NonNull String uuid) {
         super(uuid);
     }
 

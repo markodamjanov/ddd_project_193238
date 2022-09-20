@@ -10,7 +10,10 @@ import mk.ukim.finki.product_catalog.services.forms.PhonePartForm;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @Transactional
@@ -26,7 +29,7 @@ public class PhonePartServiceImpl implements PhonePartService {
 
     @Override
     public PhonePart createProduct(PhonePartForm form) {
-        PhonePart part = PhonePart.build(form.getPhonePartName(), form.getPrice(), form.getSales());
+        PhonePart part = PhonePart.build(form.getPhonePartName(), form.getPrice(), form.getSales(), form.getImgUrl(), form.getDescription());
         phonePartRepository.save(part);
         return part;
     }
@@ -49,6 +52,13 @@ public class PhonePartServiceImpl implements PhonePartService {
 
     @Override
     public List<PhonePart> getAll() {
-        return phonePartRepository.findAll();
+        List<PhonePart> parts = phonePartRepository.findAll();
+        parts.sort(Comparator.comparing(PhonePart::getPhonePartName));
+        return parts;
+    }
+
+    @Override
+    public void deleteProduct(String id) {
+        phonePartRepository.deleteById(PhonePartId.of(id));
     }
 }

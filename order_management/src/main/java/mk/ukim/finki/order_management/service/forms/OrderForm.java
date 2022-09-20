@@ -1,5 +1,6 @@
 package mk.ukim.finki.order_management.service.forms;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import mk.ukim.finki.shared_kernel.domain.financial.Currency;
 
@@ -19,4 +20,9 @@ public class OrderForm {
     @Valid
     @NotEmpty
     private List<OrderItemForm> items = new ArrayList<>();
+
+    public OrderForm(Currency currency, List<OrderItemForm> items) {
+        this.currency = currency;
+        this.items = items;
+    }
 }

@@ -14,4 +14,9 @@ public class OrderItemForm {
 
     @Min(1)
     private int quantity = 1;
+
+    public OrderItemForm(PhonePart phonePart, int quantity) {
+        this.phonePart = phonePart;
+        this.quantity = quantity;
+    }
 }

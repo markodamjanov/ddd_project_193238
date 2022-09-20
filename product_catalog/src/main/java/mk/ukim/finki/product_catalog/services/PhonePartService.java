@@ -13,5 +13,6 @@ public interface PhonePartService {
     PhonePart orderItemCreated(PhonePartId phonePartId, int quantity);
     PhonePart orderItemRemoved(PhonePartId phonePartId, int quantity);
     List<PhonePart> getAll();
+    void deleteProduct(String id);
 
 }

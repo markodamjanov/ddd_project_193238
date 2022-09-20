@@ -31,7 +31,7 @@ public class PhonePartClient {
 
     public List<PhonePart> findAll() {
         try {
-            return restTemplate.exchange(uri().path("/api/phoneParts").build().toUri(),
+            return restTemplate.exchange(uri().path("/api/parts").build().toUri(),
                     HttpMethod.GET,
                     null,
                     new ParameterizedTypeReference<List<PhonePart>>() {

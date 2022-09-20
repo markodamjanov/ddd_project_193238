@@ -15,6 +15,10 @@ public class PhonePart extends AbstractEntity<PhonePartId> {
 
     private int numberOfSales = 0;
 
+    private String imgUrl;
+
+    private String description;
+
     @AttributeOverrides({
             @AttributeOverride(name="amount", column = @Column(name="price_amount")),
             @AttributeOverride(name="currency", column = @Column(name="price_currency"))
@@ -30,11 +34,13 @@ public class PhonePart extends AbstractEntity<PhonePartId> {
         super(PhonePartId.randomId(PhonePartId.class));
     }
 
-    public static PhonePart build(String phonePartName, Money price, int numberOfSales) {
+    public static PhonePart build(String phonePartName, Money price, int numberOfSales, String imgUrl, String description) {
         PhonePart p = new PhonePart();
         p.price = price;
         p.phonePartName = phonePartName;
         p.numberOfSales = numberOfSales;
+        p.imgUrl = imgUrl;
+        p.description = description;
         return p;
     }
 

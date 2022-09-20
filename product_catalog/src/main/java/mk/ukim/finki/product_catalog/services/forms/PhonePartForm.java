@@ -9,6 +9,7 @@ public class PhonePartForm {
     private String phonePartName;
     private Money price;
     private int sales;
-
+    private String imgUrl;
+    private String description;
 
 }
